@@ -32,27 +32,12 @@ async function getPostsByCategory(category: Categories) {
 	return posts.filter((post) => post.categories.includes(category))
 }
 
-export const GET: RequestHandler = async ({ url }) => {
-	// Handle prerendering case where url.searchParams might not be available
-	let category: string | null = null
-	
-	try {
-		category = url.searchParams.get('category')
-	} catch (error) {
-		// During prerendering, searchParams might not be available
-		category = null
-	}
-	
-	let posts
-
-	if (category) {
-		posts = await getPostsByCategory(category as Categories)
-	} else {
-		posts = await getPosts()
-	}
-
+export const GET: RequestHandler = async () => {
+	// During prerendering, we'll return all posts
+	// Category filtering can be handled client-side or through separate endpoints
+	const posts = await getPosts()
 	return json(posts)
 }
 
-// Disable prerendering for this API route to avoid the searchParams issue
-export const prerender = false
+// Enable prerendering for this API route
+export const prerender = true

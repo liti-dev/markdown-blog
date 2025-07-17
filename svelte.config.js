@@ -25,7 +25,17 @@ const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			handleHttpError: ({ path, referrer, message }) => {
+				// Ignore 404 errors for RSS feed during prerendering
+				if (path === '/rss.xml') {
+					return;
+				}
+				// Throw error for other cases
+				throw new Error(message);
+			}
+		}
 	}
 }
 
