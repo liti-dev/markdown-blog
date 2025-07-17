@@ -4,13 +4,6 @@
 </svelte:head>
 
 <div class="text-column">
-	<h1>Contact</h1>
-
-	<p>
-		I'd love to hear from you! Whether you have questions about green software development, 
-		want to discuss performance optimization, or just want to say hello.
-	</p>
-
 	<div class="contact-info">
 		<h2>Get in Touch</h2>
 		<p>
@@ -18,13 +11,15 @@
 		</p>
 		<ul>
 			<li>Email: tia.nkm03@gmail.com</li>
-			<li><a href="https://github.com/liti-dev">GitHub</a></li>
+			<li><a href="https://github.com/liti-dev" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/thuyet-ng-03/" target="_blank">Linkedin</a></li>
+      <li><a href="https://bsky.app/profile/tia-nguyen.bsky.social" target="_blank">Bluesky</a></li>
 			
 		</ul>
 	</div>
 
 	<p>
-		I try to respond to all messages within a few days. Looking forward to connecting!
+		Looking forward to connecting!
 	</p>
 </div>
 

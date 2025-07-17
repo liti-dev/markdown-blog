@@ -4,22 +4,13 @@
 </svelte:head>
 
 <div class="text-column">
-	<h1>About</h1>
-
 	<p>
-		Welcome to my blog! This is where I share thoughts about performance, green software, 
-		and sustainable development practices.
+		Welcome to my digital garden! This is where I share thoughts about life, learning, and tech.
 	</p>
 
 	<p>
-		I'm passionate about making software more efficient and environmentally friendly. 
-		Through this blog, I explore topics like:
+		I'm passionate about making software more efficient and environmentally friendly. I'm on the journey of making sustainable software accessible. 
 	</p>
-
-	<ul>
-		<li>My learning</li>
-		<li>Green software development</li>
-	</ul>
 
 	<p>
 		Feel free to reach out if you have any questions or want to discuss these topics further!

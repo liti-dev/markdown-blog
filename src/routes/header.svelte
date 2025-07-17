@@ -13,6 +13,9 @@
 			<a href="/about">About</a>
 		</li>
 		<li>
+			<a href="https://tia-code.netlify.app/" target="_blank">Portfolio</a>
+		</li>
+		<li>
 			<a href="/contact">Contact</a>
 		</li>
 		<li>
