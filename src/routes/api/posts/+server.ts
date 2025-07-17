@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit'
+import type { RequestHandler } from './$types'
 import type { Categories, Post } from '$lib/types'
 
 async function getPosts() {
@@ -31,8 +32,17 @@ async function getPostsByCategory(category: Categories) {
 	return posts.filter((post) => post.categories.includes(category))
 }
 
-export async function GET({ url }: { url: URL }) {
-	const category = url.searchParams.get('category')
+export const GET: RequestHandler = async ({ url }) => {
+	// Handle prerendering case where url.searchParams might not be available
+	let category: string | null = null
+	
+	try {
+		category = url.searchParams.get('category')
+	} catch (error) {
+		// During prerendering, searchParams might not be available
+		category = null
+	}
+	
 	let posts
 
 	if (category) {
@@ -43,3 +53,6 @@ export async function GET({ url }: { url: URL }) {
 
 	return json(posts)
 }
+
+// Disable prerendering for this API route to avoid the searchParams issue
+export const prerender = false
