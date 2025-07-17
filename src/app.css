@@ -7,7 +7,7 @@ html {
 	--font-monospace-code: 'JetBrains Mono', monospace;
 
 	/* dark */
-	--brand-dark: var(--orange-3);
+	--brand-dark: var(--violet-6);
 	--text-1-dark: var(--gray-3);
 	--text-2-dark: var(--gray-5);
 	--surface-1-dark: var(--gray-12);
@@ -18,7 +18,7 @@ html {
 	--border-dark: var(--gray-9);
 
 	/* light */
-	--brand-light: var(--orange-10);
+	--brand-light: var(--violet-7);
 	--text-1-light: var(--gray-8);
 	--text-2-light: var(--gray-7);
 	--surface-1-light: var(--gray-0);
@@ -150,10 +150,10 @@ li {
 		margin-bottom: var(--size-3);
 	}
 
-	:is(ul, ol) {
+	/* :is(ul, ol) {
 		list-style-type: '🔥';
 		padding-left: var(--size-5);
-	}
+	} */
 
 	:is(ul, ol) li {
 		margin-block: var(--size-2);

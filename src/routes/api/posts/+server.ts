@@ -31,7 +31,7 @@ async function getPostsByCategory(category: Categories) {
 	return posts.filter((post) => post.categories.includes(category))
 }
 
-export async function GET({ url }) {
+export async function GET({ url }: { url: URL }) {
 	const category = url.searchParams.get('category')
 	let posts
 

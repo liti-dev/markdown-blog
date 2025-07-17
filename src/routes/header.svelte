@@ -44,7 +44,13 @@
 
 		a {
 			color: inherit;
-			text-decoration: none;
+			font-size: var(--size-5);
+			/* text-decoration: none; */
+			text-decoration: underline dashed var(--violet-6) 3px;
+			text-underline-offset: 5px;
+			&:hover {
+				color: var(--violet-6);
+			}
 		}
 	}
 </style>
