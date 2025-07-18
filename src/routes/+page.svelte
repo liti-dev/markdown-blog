@@ -27,15 +27,15 @@
 		gap: var(--size-7);
 
 		.post {
-			max-inline-size: var(--size-content-3);
+			max-inline-size: var(--size-content-4);
 
 			&:not(:last-child) {
-				border-bottom: 1px solid var(--border);
+				/* border-bottom: 1px solid var(--border); */
 				padding-bottom: var(--size-7);
 			}
 
 			.title {
-				font-size: var(--font-size-fluid-1);
+				font-size: var(--font-size-fluid-2);
 				text-transform: capitalize;
 			}
 

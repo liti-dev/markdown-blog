@@ -24,6 +24,14 @@ const mdsvexOptions = {
 const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
+	vitePlugin: {
+		inspector: {
+			toggleKeyCombo: 'alt-shift',
+			holdMode: true,
+			showToggleButton: 'always',
+			toggleButtonPos: 'bottom-left'
+		}
+	},
 	kit: {
 		adapter: adapter(),
 		prerender: {
