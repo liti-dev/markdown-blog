@@ -141,6 +141,11 @@ figcaption {
 	color: var(--text-2);
 }
 
+blockquote {
+	margin: var(--size-3) 0;
+	padding: 0 var(--size-3)
+}
+
 .surface-1 {
 	background-color: var(--surface-1);
 	color: var(--text-2);
@@ -163,6 +168,8 @@ figcaption {
 
 .prose {
 	p {
+		margin: var(--size-3) 0;
+
 		:not(:is(h2, h3, h4, h5, h6) + p) {
 			margin-top: var(--size-7);
 		}
@@ -174,7 +181,7 @@ figcaption {
 	}
 
 	:is(h2, h3, h4, h5, h6) {
-		margin-top: var(--size-8);
+		margin-top: var(--size-5);
 		margin-bottom: var(--size-3);
 	}
 

@@ -47,7 +47,7 @@
 			margin-top: var(--size-7);
 
 			> * {
-				padding: var(--size-2) var(--size-3);
+				padding: var(--size-2) 0;
 				border-radius: var(--radius-round);
 			}
 		}
