@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit'
 
 export async function load({ params, fetch }) {
 	const { category } = params
+	console.log(category)
 
 	try {
 		const response = await fetch(`/api/posts?category=${category}`)

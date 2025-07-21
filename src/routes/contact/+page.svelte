@@ -32,9 +32,9 @@
 		text-align: left;
 	}
 
-	h1 {
+	/* h1 {
 		width: 100%;
-	}
+	} */
 
 	.contact-info {
 		margin: 2rem 0;

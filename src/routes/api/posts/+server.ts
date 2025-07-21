@@ -32,9 +32,15 @@ async function getPostsByCategory(category: Categories) {
 	return posts.filter((post) => post.categories.includes(category))
 }
 
-export const GET: RequestHandler = async () => {
-	// During prerendering, we'll return all posts
-	// Category filtering can be handled client-side or through separate endpoints
+export const GET: RequestHandler = async ({ url }) => {
+	const category = url.searchParams.get('category')
+	
+	if (category) {
+		const posts = await getPostsByCategory(category as Categories)
+		return json(posts)
+	}
+	
+	// Return all posts if no category specified
 	const posts = await getPosts()
 	return json(posts)
 }

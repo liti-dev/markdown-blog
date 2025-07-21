@@ -183,6 +183,7 @@ blockquote {
 	:is(h2, h3, h4, h5, h6) {
 		margin-top: var(--size-5);
 		margin-bottom: var(--size-3);
+		font-size: var(--font-size-fluid-2);
 	}
 
 	:is(ul, ol) {

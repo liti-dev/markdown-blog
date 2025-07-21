@@ -34,6 +34,7 @@
 
 		h1 {
 			text-transform: capitalize;
+			font-size: var(--font-size-fluid-3)
 		}
 
 		h1 + p {

@@ -9,8 +9,6 @@
 	<title>Posts in {data.category}</title>
 </svelte:head>
 
-<h1>Posts in {data.category}</h1>
-
 <section>
 	<ul class="posts">
 		{#each data.posts as post}
