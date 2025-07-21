@@ -2,12 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="icon" href="%sveltekit.assets%/icons/favicon.ico" />
+		<link rel="icon" type="image/png" sizes="48x48" href="%sveltekit.assets%/icons/icon-48x48.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="%sveltekit.assets%/icons/icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="%sveltekit.assets%/icons/icon-512x512.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
 		<script type="module">
 			const theme = localStorage.getItem('color-scheme')
-
 			theme
 				? document.documentElement.setAttribute('color-scheme', theme)
 				: localStorage.setItem('color-scheme', 'dark')
