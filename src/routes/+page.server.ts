@@ -1,4 +1,5 @@
 import type { Post } from '$lib/types'
+import { error } from '@sveltejs/kit'
 
 async function getPosts() {
 	let posts: Post[] = []
@@ -26,6 +27,12 @@ async function getPosts() {
 }
 
 export async function load() {
-	const posts = await getPosts()
-	return { posts }
+	try {
+		const posts = await getPosts()
+		return { posts }
+	} catch(e){
+		console.error(e)
+		error(500, "Failed to load posts")
+	}
+	
 }

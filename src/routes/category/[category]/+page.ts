@@ -33,16 +33,19 @@ async function getPostsByCategory(category: Categories) {
 
 export async function load({ params }) {
 	const { category } = params
-	console.log(category)
+	// console.log("category", category)
+	let posts
 
 	try {
-		const posts = await getPostsByCategory(category as Categories)
-
-		return {
-			posts,
-			category
-		}
+		posts = await getPostsByCategory(category as Categories)
+		
 	} catch (e) {
-		throw error(404, `${e}: Could not find posts for category ${category}`)
+		error(500, `Failed to load posts for category "${category}"`)
 	}
+
+	if (posts.length === 0) {
+		error(404, `No posts found in category "${category}"`)
+	}
+
+	return {posts, category}
 }
