@@ -35,7 +35,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			handleHttpError: ({ path, referrer, message }) => {
+			handleHttpError: ({ path, message }) => {
 				// Ignore 404 errors for RSS feed during prerendering
 				if (path === '/rss.xml') {
 					return;
