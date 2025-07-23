@@ -50,5 +50,5 @@ The good thing is, we don’t have to navigate this path alone. Jonathan Bell (S
 
 Every great journey has to start somewhere. You can take the first step by:
 
-- ⭐ Going to meetups or reaching out to others in the industry
-- ⭐ Embracing collaborative opportunities like hackathons (Huddle Hive is quite beginner-friendly), even if they seem daunting.
+-  Going to meetups or reaching out to others in the industry
+-  Embracing collaborative opportunities like hackathons (Huddle Hive is quite beginner-friendly), even if they seem daunting.

@@ -1,33 +1,42 @@
 <svelte:head>
 	<title>About</title>
-	<meta name="description" content="About this blog" />
+	<meta name="description" content="About me" />
 </svelte:head>
 
 <div class="text-column">
 	<p>
-		Welcome to my digital garden! This is where I share thoughts about life, learning, and tech.
+		Welcome to my digital garden! This is where I share thoughts about life, learning, and tech. 🌻
 	</p>
 
 	<p>
-		I'm passionate about making software more efficient and environmentally friendly. I'm on the journey of making sustainable software accessible. 
+		I'm Thuyet (Tia) Nguyen, a teacher-turned-fullstack engineer with a passion for animal welfare
+		and sustainability. 🐶 Animal lover 🧠 Powered by an ADHD brain
 	</p>
 
 	<p>
-		Feel free to reach out if you have any questions or want to discuss these topics further!
+		I'm on the journey of making green software accessible, helping people and the planet at scale.
+		I've worked on projects for purpose-driven companies such as DiverseTalent.ai, Article1, Diginex
+		ESG builder.
 	</p>
+
+	<p>
+		My teaching and consulting background helps me craft intuitive and user-centric apps and
+		communicate technical concepts with clarity, enabling effective collaboration with teammates and
+		non-tech stakeholders.
+	</p>
+
+	<p>When not coding, I'm advocating for Green Software at local tech events:</p>
+	<ul>
+		<li>Vienna Women Techmakers 2025</li>
+		<li>Huddle Hive Hackathon 2024</li>
+		<li>Belfast Green Software meetup 2023</li>
+		<li>Northern Ireland Developer Conference 2023</li>
+	</ul>
 </div>
 
 <style>
 	.text-column {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: start;
-		text-align: left;
-	}
-
-	h1 {
-		width: 100%;
+		margin: 0 var(--size-7);
 	}
 
 	ul {
@@ -35,6 +44,12 @@
 	}
 
 	li {
-		margin: 0.5rem 0;
+		list-style: '⭐';
+		margin: 0 1rem;
+		padding: 0.5rem;
+	}
+
+	p {
+		margin-bottom: 1.5rem;
 	}
 </style>
