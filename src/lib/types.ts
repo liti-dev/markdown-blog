@@ -1,4 +1,12 @@
-export type Categories = 'sveltekit' | 'svelte'
+export type Categories = 
+	| 'vscode'
+	| 'green-software'
+	| 'learning'
+	| 'reading-code'
+	| 'performance'
+	| 'sustainability'
+	| 'sveltekit'
+	| 'svelte'
 
 export type Post = {
 	title: string

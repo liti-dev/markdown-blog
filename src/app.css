@@ -201,5 +201,39 @@ blockquote {
 		padding: var(--size-3);
 		border-radius: 8px;
 		tab-size: 2;
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		font-family: var(--font-monospace-code);
+		line-height: 1.6;
+		
+		/* Allow line wrapping instead of horizontal scroll */
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		
+		/* Mobile adjustments without shrinking text */
+		@media (max-width: 768px) {
+			margin-left: calc(-1 * var(--size-3));
+			margin-right: calc(-1 * var(--size-3));
+			border-radius: 0;
+			border-left: none;
+			border-right: none;
+		}
+	}
+	
+	code {
+		font-family: var(--font-monospace-code);
+		background: var(--surface-2);
+		padding: 0.2em 0.4em;
+		border-radius: 4px;
+		border: 1px solid var(--border);
+		
+		/* Inline code in pre blocks shouldn't have extra styling */
+		pre & {
+			background: none;
+			padding: 0;
+			border: none;
+			border-radius: 0;
+		}
 	}
 }
