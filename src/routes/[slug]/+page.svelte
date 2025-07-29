@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils'
+	import Backlinks from '$lib/components/Backlinks.svelte'
 
 	let { data } = $props()
 </script>
@@ -27,6 +28,8 @@
 	<div class="prose">
 		<data.content />
 	</div>
+
+	<Backlinks currentSlug={data.meta.slug} />
 </article>
 
 <style>
