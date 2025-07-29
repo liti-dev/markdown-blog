@@ -7,6 +7,10 @@
 
 <svelte:head>
 	<title>Posts in {data.category}</title>
+	<meta
+		name="description"
+		content="Browse all posts about {data.category} - insights, tutorials, and thoughts on {data.category}"
+	/>
 </svelte:head>
 
 <section>

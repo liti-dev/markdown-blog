@@ -6,8 +6,10 @@
 
 <svelte:head>
 	<title>{data.meta.title}</title>
+	<meta name="description" content={data.meta.description} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={data.meta.title} />
+	<meta property="og:description" content={data.meta.description} />
 </svelte:head>
 
 <article>
@@ -34,7 +36,7 @@
 
 		h1 {
 			text-transform: capitalize;
-			font-size: var(--font-size-fluid-3)
+			font-size: var(--font-size-fluid-3);
 		}
 
 		h1 + p {

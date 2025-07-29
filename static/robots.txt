@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+
+# Block crawling of admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all search engines to crawl everything
+# This is good for a public blog
