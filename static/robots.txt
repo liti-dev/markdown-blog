@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemap location
+Sitemap: https://tia-nguyen.vercel.app/sitemap.xml
 
 # Block crawling of admin or private areas (if any)
 # Disallow: /admin/

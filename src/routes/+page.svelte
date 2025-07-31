@@ -1,14 +1,12 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils'
 	import * as config from '$lib/config'
+	import SEO from '$lib/components/SEO.svelte'
 
 	let { data } = $props()
 </script>
 
-<svelte:head>
-	<title>{config.title}</title>
-	<meta name="description" content={config.description} />
-</svelte:head>
+<SEO title={config.title} description={config.description} type="website" />
 
 <section>
 	<ul class="posts">

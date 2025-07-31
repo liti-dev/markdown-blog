@@ -1,17 +1,19 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils'
 	import Backlinks from '$lib/components/Backlinks.svelte'
+	import SEO from '$lib/components/SEO.svelte'
 
 	let { data } = $props()
 </script>
 
-<svelte:head>
-	<title>{data.meta.title}</title>
-	<meta name="description" content={data.meta.description} />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content={data.meta.title} />
-	<meta property="og:description" content={data.meta.description} />
-</svelte:head>
+<SEO
+	title={data.meta.title}
+	description={data.meta.description}
+	type="article"
+	slug={data.meta.slug}
+	publishedTime={data.meta.date}
+	tags={data.meta.categories}
+/>
 
 <article>
 	<hgroup>
