@@ -20,8 +20,10 @@
 	</hgroup>
 
 	<div class="tags">
-		{#each data.meta.categories as category}
-			<a href={`/category/${category}`}><span class="surface-4">&num;{category}</span></a>
+		{#each data.meta.categories as category, index}
+			<a href={`/category/${category}`}
+				><span class="tag-{(index % 4) + 1}">&num;{category}</span></a
+			>
 		{/each}
 	</div>
 

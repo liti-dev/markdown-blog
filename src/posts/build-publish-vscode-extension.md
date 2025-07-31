@@ -4,6 +4,7 @@ description: The development process behind the vscarbon project
 date: '2025-07-28'
 categories:
   - sustainability
+  - green-software
   - vscode
 published: true
 ---
@@ -11,7 +12,7 @@ published: true
 ### 1. Why building a VS Code extension
 When I have a new idea, my instinct is usually to build a website. It’s the most familiar path to show things, interact with users, share data. But this time was different.
 
-The idea behind [VSCarbon](/vscarbon-grid-aware-vscode-extension) wasn’t about creating another destination for people to visit, it was about meeting developers inside their daily workflow. The VSCarbon code can be found [here](https://github.com/liti-dev/vscarbon).
+The idea behind [VSCarbon](/vscarbon-grid-aware-vscode-extension) wasn’t about creating another destination for people to visit (although I did build a web version called [Git Good](https://git-good-pi.vercel.app/)), it was about meeting developers inside their daily workflow. The VSCarbon code can be found [here](https://github.com/liti-dev/vscarbon).
 ### 2. Scaffolding the Extension
 Make sure you have [Node.js](https://nodejs.org/en) and [Git](https://git-scm.com/) installed.
 

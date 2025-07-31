@@ -5,7 +5,6 @@ export type Categories =
 	| 'reading-code'
 	| 'performance'
 	| 'sustainability'
-	| 'sveltekit'
 	| 'svelte'
 
 export type Post = {
