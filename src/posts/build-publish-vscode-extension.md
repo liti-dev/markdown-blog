@@ -7,6 +7,7 @@ categories:
   - green-software
   - vscode
 published: true
+status: tree
 ---
 
 ### 1. Why building a VS Code extension

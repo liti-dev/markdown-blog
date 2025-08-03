@@ -5,6 +5,7 @@ date: '2024-09-19'
 categories:
   - sustainability
 published: true
+status: tree
 ---
 
 I started navigating climate tech (particularly green software) last year when moving to the UK and haven’t looked back since. However, I sometimes find it overwhelming.

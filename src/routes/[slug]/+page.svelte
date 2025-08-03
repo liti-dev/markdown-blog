@@ -4,6 +4,7 @@
 	import SEO from '$lib/components/SEO.svelte'
 
 	let { data } = $props()
+	// console.log('meta', data)
 </script>
 
 <SEO
@@ -17,7 +18,7 @@
 
 <article>
 	<hgroup>
-		<h1>{data.meta.title}</h1>
+		<h1>{data.meta.status === 'tree' ? '' : '(Draft)'} {data.meta.title}</h1>
 		<p>Published at {formatDate(data.meta.date)}</p>
 	</hgroup>
 

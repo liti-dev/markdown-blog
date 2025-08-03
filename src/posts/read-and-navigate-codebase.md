@@ -1,11 +1,12 @@
 ---
-title: (Draft) How I learned to read and navigate larger codebase
+title: How I learned to read and navigate larger codebase
 description: Writing code was all I knew until I worked with others
 date: '2025-07-23'
 categories:
   - learning
   - reading-code
 published: true
+status: sprout
 ---
 
 When I first started coding, I thought writing code was the hard part. Turns out, reading code, especially someone else’s, can be even harder.
