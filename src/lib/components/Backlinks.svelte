@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getBacklinks } from '$lib/backlinks'
+	import { getBacklinks } from '$lib/utils'
 
 	interface Props {
 		currentSlug: string

@@ -2,6 +2,7 @@
 	import { formatDate } from '$lib/utils'
 	import Backlinks from '$lib/components/Backlinks.svelte'
 	import SEO from '$lib/components/SEO.svelte'
+	import { getCategoryColor, getCategoryTextColor } from '$lib/utils'
 
 	let { data } = $props()
 	// console.log('meta', data)
@@ -16,6 +17,10 @@
 	tags={data.meta.categories}
 />
 
+<nav class="back-nav">
+	<a href="/">← 🌳 Back to garden </a>
+</nav>
+
 <article>
 	<hgroup>
 		<h1>{data.meta.status === 'tree' ? '' : '(Draft)'} {data.meta.title}</h1>
@@ -23,10 +28,17 @@
 	</hgroup>
 
 	<div class="tags">
-		{#each data.meta.categories as category, index}
-			<a href={`/category/${category}`}
-				><span class="tag-{(index % 4) + 1}">&num;{category}</span></a
-			>
+		{#each data.meta.categories as category}
+			<a href={`/category/${category}`}>
+				<span
+					class="tag"
+					style="background-color: {getCategoryColor(category)}; color: {getCategoryTextColor(
+						category
+					)}"
+				>
+					&num;{category}
+				</span>
+			</a>
 		{/each}
 	</div>
 
@@ -38,6 +50,23 @@
 </article>
 
 <style>
+	.back-nav {
+		max-inline-size: var(--size-content-3);
+		margin-inline: auto;
+		margin-bottom: var(--size-5);
+
+		a {
+			color: var(--text-2);
+			text-decoration: none;
+			font-size: var(--font-size-3);
+			transition: color 0.2s ease;
+
+			&:hover {
+				color: var(--text-1);
+			}
+		}
+	}
+
 	article {
 		max-inline-size: var(--size-content-3);
 		margin-inline: auto;
@@ -56,10 +85,21 @@
 			display: flex;
 			gap: var(--size-3);
 			margin-top: var(--size-7);
+			flex-wrap: wrap;
 
-			> * {
-				padding: var(--size-2) 0;
-				border-radius: var(--radius-round);
+			a {
+				text-decoration: none;
+			}
+
+			.tag {
+				padding: var(--size-1) var(--size-2);
+				border-radius: var(--radius-2);
+				font-size: var(--font-size-1);
+				transition: opacity 0.2s ease;
+			}
+
+			.tag:hover {
+				opacity: 0.8;
 			}
 		}
 	}

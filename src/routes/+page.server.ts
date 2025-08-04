@@ -4,7 +4,12 @@ import { error } from '@sveltejs/kit'
 export async function load() {
 	try {
 		const posts = await getPosts()
-		return { posts }
+		
+		// Extract all unique categories
+		const allCategories = posts.flatMap(post => post.categories)
+		const categories = [...new Set(allCategories)].sort()
+		
+		return { posts, categories }
 	} catch(e){
 		console.error(e)
 		error(500, "Failed to load posts")
