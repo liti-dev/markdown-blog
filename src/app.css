@@ -12,7 +12,7 @@ html {
 	--tag-color-3: #386641;
 	--tag-color-4: #ffb3c1;
 
-	/* tag colors for dark mode (lighter versions) */
+
 	--tag-color-1-dark: #e85a5c;
 	--tag-color-2-dark: #c4e76a;
 	--tag-color-3-dark: #4a7f54;
@@ -216,20 +216,18 @@ blockquote {
 		background: var(--surface-2);
 		border: 1px solid var(--border);
 		font-family: var(--font-monospace-code);
-		line-height: 1.6;
+		line-height: 1.5;
 		
-		/* Allow line wrapping instead of horizontal scroll */
-		white-space: pre-wrap;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
+		/* Enable horizontal scrolling for code blocks */
+		white-space: pre;
+		overflow-x: auto;
 		
-		/* Mobile adjustments without shrinking text */
+		/* Mobile adjustments */
 		@media (max-width: 768px) {
-			margin-left: calc(-1 * var(--size-3));
-			margin-right: calc(-1 * var(--size-3));
+			max-width: calc(100vw - 2 * var(--size-7));
 			border-radius: 0;
-			border-left: none;
-			border-right: none;
+			/* Ensure scrolling works on mobile */
+			-webkit-overflow-scrolling: touch;
 		}
 	}
 	
@@ -250,7 +248,7 @@ blockquote {
 	}
 }
 
-/* Tag color classes */
+
 [class^="tag-"] {
 	padding: var(--size-1);
 	border-radius: var(--radius-2)
