@@ -23,13 +23,13 @@
 			{/each}
 		</ul>
 		<p class="count">
-			Each tree represents one post. My digital garden now has {data.posts.length} trees
+			My digital garden has {data.posts.length} trees (posts)
 		</p>
 	</main>
 
 	<aside class="sidebar">
 		<div class="sidebar-content">
-			<h3>Ideas I'm exploring</h3>
+			<h3>Seeds I've planted</h3>
 			<ul class="categories">
 				{#each data.categories as category}
 					<li>

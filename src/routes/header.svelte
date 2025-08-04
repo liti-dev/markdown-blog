@@ -46,10 +46,10 @@
 			color: inherit;
 			font-size: var(--size-5);
 			/* text-decoration: none; */
-			text-decoration: underline dashed var(--violet-6) 3px;
+			text-decoration: underline dashed var(--green-5) 3px;
 			text-underline-offset: 5px;
 			&:hover {
-				color: var(--violet-6);
+				color: var(--green-7);
 			}
 		}
 	}
