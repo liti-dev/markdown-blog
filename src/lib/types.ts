@@ -6,6 +6,7 @@ export type Categories =
 	| 'performance'
 	| 'sustainability'
 	| 'svelte'
+	|	'security'
 
 export type Post = {
 	title: string

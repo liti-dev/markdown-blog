@@ -1,6 +1,6 @@
 <script lang="ts">
 	import * as config from '$lib/config'
-	import Toggle from './toggle.svelte'
+	import Toggle from '$lib/components/Toggle.svelte'
 </script>
 
 <nav>
@@ -11,6 +11,9 @@
 	<ul class="links">
 		<li>
 			<a href="/about">About</a>
+		</li>
+		<li>
+			<a href="/now">Now</a>
 		</li>
 		<li>
 			<a href="https://tia-nguyen-portfolio.vercel.app/" target="_blank">Portfolio</a>

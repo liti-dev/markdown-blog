@@ -15,9 +15,10 @@ export function getCategoryColor(category: string): string {
 		'green-software': '#386641',      
 		  
 		// Dev
-		'vscode': '#bc4749',                        
+		'vscode':'#ff8f94' ,                        
 		'reading-code': '#f72585',
 		'performance': '#ffb3c1',
+		'security':'#ae0039',
 		
 		// Others
 		'learning': '#8F00FF',
@@ -28,7 +29,7 @@ export function getCategoryColor(category: string): string {
 
 // get text color based on background
 export function getCategoryTextColor(category: string): string {
-	const darkBackgrounds = ['#386641', '#bc4749', '#f72585', '#6a994e']
+	const darkBackgrounds = ['#386641', '#bc4749', '#f72585', '#ae0039','#6a994e']
 	const bgColor = getCategoryColor(category)
 	
 	return darkBackgrounds.includes(bgColor) ? '#ffffff' : '#000000'

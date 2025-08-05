@@ -1,0 +1,163 @@
+<script lang="ts">
+	import SEO from '$lib/components/SEO.svelte'
+
+	let lastUpdated = 'Aug 2025'
+</script>
+
+<SEO title="Now - What I've been up to" description="What I'm focusing on in my life" />
+
+<div class="layout-container">
+	<main class="main-content">
+		<header class="page-header">
+			<h1>What I've been up to</h1>
+			<p class="subtitle">Last updated: {lastUpdated}</p>
+		</header>
+
+		<div class="prose">
+			<p class="intro">
+				This is my "now" page - inspired by <a
+					href="https://nownownow.com/about"
+					target="_blank"
+					rel="noopener">Derek Sivers</a
+				>. It's a snapshot of what I'm focusing on at this point in my life.
+			</p>
+
+			<div class="focus-areas">
+				<section class="focus-item">
+					<h2>TLDR</h2>
+					<ul>
+						<li>
+							Building and maintaining <a href="/vscarbon-grid-aware-vscode-extension">VSCarbon</a> -
+							a VS Code extension that fosters low-carbon coding, and this digital garden.
+						</li>
+						<li>Job searching</li>
+						<li>
+							Contributing to <a
+								href="https://github.com/sveltevietnam/sveltevietnam.dev"
+								target="_blank"
+								rel="noopener">Svelte Viet Nam</a
+							>
+						</li>
+						<li>
+							Learning data viz using Svelte and D3, a little bit of architecture and other
+							technologies
+						</li>
+						<li>
+							Others: making oolong jasmine or Vietnamese coffee every day, attending tech meetups,
+							watching (mostly) farming and detective shows
+						</li>
+					</ul>
+				</section>
+				<section class="focus-item">
+					<h2>August 2025</h2>
+					<ul>
+						<li>
+							If July's theme is sustainability, August started off with <a
+								href="https://medium.com/@averyhastings_98108/if-youre-reading-this-you-re-probably-a-cyborg-ca16848aa39"
+								rel="noopener">cybernetic organism</a
+							>
+							. It talks about our close relationships with patterns of information over material experience
+							(e.g. we check the weather report instead of going outside to feel the temperature). Then
+							my friend sent me a post about
+							<a
+								href="https://www.linkedin.com/posts/shilpasaul_authenticity-analogueengagement-marketing-activity-7356575608509763584-w8Tt?utm_source=share&utm_medium=member_desktop&rcm=ACoAADBVtyoBSkuMadCueYDfZbQ7Odiw_vW9uBE"
+								rel="noopener">analogue engagement</a
+							>. Balancing between nature/material world and digital world is something I'm trying
+							to do.
+						</li>
+						<li>
+							I'm well aware of the importance of backend knowledge, but these days I've been
+							learning more visual stuffs (e.g., data viz, Three.js).
+						</li>
+						<li>
+							I started integrating AI into coding. One thing I'm confident is that I'm currently
+							better at debugging than my AI buddy.
+						</li>
+					</ul>
+					<h2>July 2025</h2>
+					<ul>
+						<li>
+							Published my article on Branch and joined their virtual launch party (well, I should
+							start celebrating whenever I launch something) - a circle moment on my greeen software
+							journey.
+						</li>
+						<li>
+							Published this digital garden. I haven't bought a proper domain for it yet, thinking
+							if Tia or my real name Thuyet suits better.
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</main>
+</div>
+
+<style>
+	.layout-container {
+		max-inline-size: var(--size-content-3);
+		margin-inline: auto;
+	}
+
+	.main-content {
+		min-width: 0;
+	}
+
+	.page-header {
+		margin-bottom: var(--size-7);
+		text-align: center;
+
+		h1 {
+			font-family: 'Silkscreen', monospace;
+			font-size: var(--font-size-fluid-3);
+			margin-bottom: var(--size-3);
+			color: var(--text-1);
+		}
+
+		.subtitle {
+			color: var(--text-2);
+			font-style: italic;
+			margin: 0;
+		}
+	}
+
+	.intro {
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-2);
+		padding: var(--size-5);
+		margin-bottom: var(--size-7);
+		border-left: 4px solid var(--brand);
+	}
+
+	.focus-areas {
+		display: grid;
+		gap: var(--size-7);
+		margin-bottom: var(--size-7);
+	}
+
+	.focus-item {
+		background: var(--surface-2);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-2);
+		padding: var(--size-5);
+
+		h2 {
+			margin-top: 0;
+			margin-bottom: var(--size-3);
+			color: var(--text-1);
+			font-size: var(--font-size-fluid-2);
+		}
+
+		ul {
+			margin: 0;
+			list-style-type: '✦';
+			padding-left: var(--size-5);
+		}
+
+		li {
+			margin-block: var(--size-2);
+			padding-inline-start: var(--size-2);
+			color: var(--text-1);
+		}
+	}
+</style>
