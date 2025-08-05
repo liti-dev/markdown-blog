@@ -46,7 +46,7 @@
 		<data.content />
 	</div>
 
-	<Backlinks currentSlug={data.meta.slug} />
+	<Backlinks backlinks={data.backlinks} />
 </article>
 
 <style>

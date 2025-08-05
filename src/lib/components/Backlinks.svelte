@@ -1,41 +1,26 @@
 <script lang="ts">
-	import { getBacklinks } from '$lib/utils'
-
 	interface Props {
-		currentSlug: string
+		backlinks: Array<{ slug: string; title: string; description: string }>
 	}
 
-	let { currentSlug }: Props = $props()
-
-	// Use a derived promise that reacts to currentSlug changes
-	let backlinksPromise = $derived(getBacklinks(currentSlug))
+	let { backlinks }: Props = $props()
 </script>
 
-{#await backlinksPromise}
-	<div class="backlinks-loading">
-		<p>Loading related posts...</p>
-	</div>
-{:then backlinks}
-	{#if backlinks.length > 0}
-		<section class="backlinks">
-			<hr />
-			<h2>Referenced by</h2>
-			<ul class="backlinks-list">
-				{#each backlinks as backlink}
-					<li class="backlink-item">
-						<a href="/{backlink.slug}" class="backlink-title">
-							{backlink.title}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</section>
-	{/if}
-{:catch error}
-	<div class="backlinks-error">
-		<p>Failed to load related posts</p>
-	</div>
-{/await}
+{#if backlinks.length > 0}
+	<section class="backlinks">
+		<hr />
+		<h2>Referenced by</h2>
+		<ul class="backlinks-list">
+			{#each backlinks as backlink}
+				<li class="backlink-item">
+					<a href="/{backlink.slug}" class="backlink-title">
+						{backlink.title}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</section>
+{/if}
 
 <style>
 	.backlinks {
@@ -84,17 +69,5 @@
 
 	.backlink-title:hover {
 		color: var(--brand);
-	}
-
-	.backlinks-loading {
-		margin-top: var(--size-6);
-		color: var(--text-2);
-		font-style: italic;
-	}
-
-	.backlinks-error {
-		margin-top: var(--size-6);
-		color: var(--text-2);
-		font-style: italic;
 	}
 </style>

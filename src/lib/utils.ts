@@ -38,29 +38,41 @@ export function getCategoryTextColor(category: string): string {
 export async function getBacklinks(targetSlug: string): Promise<Array<{ slug: string; title: string; description: string }>> {
 	const backlinks: Array<{ slug: string; title: string; description: string }> = []
 	
-	// Get all markdown files as raw text for content checking
-	const rawModules = import.meta.glob('/src/posts/*.md', { query: '?raw', import: 'default', eager: true })
+	// Use lazy loading instead of eager to avoid loading all files at once
+	const rawModules = import.meta.glob('/src/posts/*.md', { query: '?raw', import: 'default' })
+	const metadataModules = import.meta.glob('/src/posts/*.md')
 	
-	// Get all markdown files with metadata for importing
-	const metadataModules = import.meta.glob('/src/posts/*.md', { eager: true })
+	// Process files in smaller batches to avoid blocking
+	const entries = Object.entries(rawModules)
+	const batchSize = 5
 	
-	for (const [path, content] of Object.entries(rawModules)) {
-		const slug = path.split('/').pop()?.replace('.md', '')
-		if (!slug || slug === targetSlug) continue
+	for (let i = 0; i < entries.length; i += batchSize) {
+		const batch = entries.slice(i, i + batchSize)
 		
-		// Check if this post's content links to our target
-		const linkPattern = new RegExp(`\\[([^\\]]+)\\]\\(\\/${targetSlug}\\)`, 'g')
-		if (linkPattern.test(content as string)) {
-			// Get metadata from the corresponding module
-			const postModule = metadataModules[path] as { metadata?: { title: string; description: string } }
-			if (postModule?.metadata) {
-				backlinks.push({
-					slug,
-					title: postModule.metadata.title,
-					description: postModule.metadata.description
-				})
+		await Promise.all(batch.map(async ([path, loader]) => {
+			const slug = path.split('/').pop()?.replace('.md', '')
+			if (!slug || slug === targetSlug) return
+			
+			try {
+				const [content, postModule] = await Promise.all([
+					loader() as Promise<string>,
+					metadataModules[path]() as Promise<{ metadata?: { title: string; description: string } }>
+				])
+				
+				// Check if this post's content links to our target
+				const linkPattern = new RegExp(`\\[([^\\]]+)\\]\\(\\/${targetSlug}\\)`, 'g')
+				if (linkPattern.test(content) && postModule?.metadata) {
+					backlinks.push({
+						slug,
+						title: postModule.metadata.title,
+						description: postModule.metadata.description
+					})
+				}
+			} catch (error) {
+				// Skip files that fail to load
+				console.warn(`Failed to process ${path}:`, error)
 			}
-		}
+		}))
 	}
 	
 	return backlinks

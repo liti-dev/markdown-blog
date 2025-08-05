@@ -1,0 +1,10 @@
+
+{
+  "functions": {
+    "src/routes/[slug]/+page.ts": {
+      "maxDuration": 10
+    }
+  },
+  "regions": ["iad1", "sfo1"],
+  "framework": "sveltekit"
+}
