@@ -18,7 +18,8 @@
 		<img
 			src="/garden.png"
 			alt="mind garden"
-			width="70%"
+			width="280"
+			height="200"
 			fetchpriority="high"
 			loading="eager"
 			decoding="sync"
@@ -63,7 +64,14 @@
 		</div>
 		<!-- shows only on desktop -->
 		<div class="desktop-garden">
-			<img src="/garden.png" alt="mind garden" width="300px" loading="lazy" decoding="async" />
+			<img
+				src="/garden.png"
+				alt="mind garden"
+				width="300"
+				height="215"
+				loading="lazy"
+				decoding="async"
+			/>
 		</div>
 	</aside>
 </div>
@@ -72,6 +80,7 @@
 	.layout-container {
 		display: grid;
 		gap: var(--size-7);
+		contain: layout; /* Optimize layout calculations */
 
 		/* Mobile: single column */
 		grid-template-columns: 1fr;
@@ -89,6 +98,11 @@
 		text-align: center;
 		margin-bottom: var(--size-4);
 
+		img {
+			max-width: 70%;
+			height: auto;
+		}
+
 		@media (min-width: 768px) {
 			display: none;
 		}
@@ -96,6 +110,11 @@
 
 	.desktop-garden {
 		display: none;
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
 
 		@media (min-width: 768px) {
 			display: block;
@@ -105,14 +124,18 @@
 
 	.main-content {
 		min-width: 0; /* Prevent grid overflow */
+		min-height: 60vh; /* Reserve space to prevent layout shift */
+		contain: layout; /* Optimize layout calculations */
 	}
 
 	.posts {
 		display: grid;
 		gap: var(--size-7);
+		contain: layout; /* Optimize layout calculations */
 
 		.post {
 			max-inline-size: var(--size-content-4);
+			min-height: 120px; /* Reserve minimum space per post */
 
 			&:not(:last-child) {
 				padding-bottom: var(--size-7);
@@ -123,14 +146,17 @@
 				font-size: var(--font-size-fluid-2);
 				text-transform: none;
 				line-height: 1.4;
+				min-height: 1.4em; /* Reserve space for title */
 			}
 
 			.date {
 				color: var(--text-2);
+				min-height: 1.2em; /* Reserve space for date */
 			}
 
 			.description {
 				margin-top: var(--size-3);
+				min-height: 2.4em; /* Reserve space for description */
 			}
 		}
 	}
