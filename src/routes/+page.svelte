@@ -39,8 +39,47 @@
 			{/each}
 		</ul>
 		<p class="count">
-			My digital garden has {data.posts.length} trees (posts)
+			My digital garden has {data.pagination.totalPosts} trees (posts)
 		</p>
+
+		<!-- Pagination -->
+		{#if data.pagination.totalPages > 1}
+			<nav class="pagination" aria-label="Blog pagination">
+				<div class="pagination-controls">
+					{#if data.pagination.hasPrevPage}
+						<a
+							href="?page={data.pagination.currentPage - 1}"
+							class="pagination-btn prev"
+							aria-label="Previous page"
+						>
+							← Previous
+						</a>
+					{/if}
+
+					<div class="page-numbers">
+						{#each Array.from({ length: data.pagination.totalPages }, (_, i) => i + 1) as pageNum}
+							{#if pageNum === data.pagination.currentPage}
+								<span class="page-number current" aria-current="page">{pageNum}</span>
+							{:else if Math.abs(pageNum - data.pagination.currentPage) <= 2 || pageNum === 1 || pageNum === data.pagination.totalPages}
+								<a href="?page={pageNum}" class="page-number">{pageNum}</a>
+							{:else if Math.abs(pageNum - data.pagination.currentPage) === 3}
+								<span class="page-ellipsis">…</span>
+							{/if}
+						{/each}
+					</div>
+
+					{#if data.pagination.hasNextPage}
+						<a
+							href="?page={data.pagination.currentPage + 1}"
+							class="pagination-btn next"
+							aria-label="Next page"
+						>
+							Next →
+						</a>
+					{/if}
+				</div>
+			</nav>
+		{/if}
 	</main>
 
 	<aside class="sidebar">
@@ -175,6 +214,87 @@
 		border-radius: var(--radius-2);
 		max-inline-size: var(--size-content-3);
 		margin-inline: auto;
+	}
+
+	.pagination {
+		margin-top: var(--size-8);
+		padding: var(--size-5);
+		max-inline-size: var(--size-content-3);
+		margin-inline: auto;
+
+		.pagination-controls {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: var(--size-2);
+			flex-wrap: wrap;
+		}
+
+		.pagination-btn {
+			padding: var(--size-2) var(--size-3);
+			background: var(--surface-3);
+			border: 1px solid var(--border);
+			border-radius: var(--radius-2);
+			text-decoration: none;
+			color: var(--text-1);
+			font-size: var(--font-size-1);
+			transition: all 0.2s ease;
+
+			&:hover {
+				background: var(--surface-4);
+				transform: translateY(-1px);
+			}
+
+			&.prev,
+			&.next {
+				font-weight: 500;
+			}
+		}
+
+		.page-numbers {
+			display: flex;
+			align-items: center;
+			gap: var(--size-1);
+		}
+
+		.page-number {
+			padding: var(--size-2);
+			min-width: var(--size-7);
+			text-align: center;
+			text-decoration: none;
+			color: var(--text-1);
+			border-radius: var(--radius-2);
+			font-size: var(--font-size-1);
+			transition: all 0.2s ease;
+
+			&:hover {
+				background: var(--surface-3);
+			}
+
+			&.current {
+				background: var(--accent);
+				color: var(--accent-text);
+				font-weight: 600;
+			}
+		}
+
+		.page-ellipsis {
+			padding: var(--size-2);
+			color: var(--text-2);
+			font-size: var(--font-size-1);
+		}
+
+		/* Mobile responsive */
+		@media (max-width: 480px) {
+			.pagination-controls {
+				flex-direction: column;
+				gap: var(--size-3);
+			}
+
+			.page-numbers {
+				order: -1;
+			}
+		}
 	}
 
 	.sidebar {
