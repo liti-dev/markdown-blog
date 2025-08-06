@@ -10,6 +10,11 @@
 <SEO title={config.title} description={config.description} type="website" />
 
 <div class="layout-container">
+	<!-- shows only on mobile -->
+	<div class="mobile-garden">
+		<img src="/garden.png" alt="mind garden" width="70%" />
+	</div>
+
 	<main class="main-content">
 		<ul class="posts">
 			{#each data.posts as post}
@@ -30,6 +35,7 @@
 	<aside class="sidebar">
 		<div class="sidebar-content">
 			<h3>Seeds I've planted</h3>
+
 			<ul class="categories">
 				{#each data.categories as category}
 					<li>
@@ -46,6 +52,10 @@
 				{/each}
 			</ul>
 		</div>
+		<!-- shows only on desktop -->
+		<div class="desktop-garden">
+			<img src="/garden.png" alt="mind garden" width="300px" />
+		</div>
 	</aside>
 </div>
 
@@ -57,11 +67,30 @@
 		/* Mobile: single column */
 		grid-template-columns: 1fr;
 
-		/* Desktop: main content + sidebar */
-		@media (min-width: 1024px) {
+		/* Medium screens and up: main content + sidebar */
+		@media (min-width: 768px) {
 			grid-template-columns: 1fr 250px;
 			max-width: 1200px;
 			margin-inline: auto;
+		}
+	}
+
+	.mobile-garden {
+		display: block;
+		text-align: center;
+		margin-bottom: var(--size-4);
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+	}
+
+	.desktop-garden {
+		display: none;
+
+		@media (min-width: 768px) {
+			display: block;
+			margin-top: var(--size-5);
 		}
 	}
 
@@ -116,7 +145,7 @@
 	.sidebar {
 		display: none;
 
-		@media (min-width: 1024px) {
+		@media (min-width: 768px) {
 			display: block;
 			position: sticky;
 			top: var(--size-7);

@@ -18,9 +18,6 @@
 		<li>
 			<a href="https://tia-nguyen-portfolio.vercel.app/" target="_blank">Portfolio</a>
 		</li>
-		<li>
-			<a href="/contact">Contact</a>
-		</li>
 	</ul>
 
 	<Toggle />
