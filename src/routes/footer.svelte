@@ -42,10 +42,6 @@
 		font-size: var(--font-size-1);
 	}
 
-	.contact span {
-		color: var(--text-2);
-	}
-
 	.contact a {
 		color: var(--text-2);
 		text-decoration: none;
