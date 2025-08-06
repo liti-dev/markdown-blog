@@ -4,6 +4,23 @@
 	import SEO from '$lib/components/SEO.svelte'
 
 	let { data } = $props()
+
+	const POSTS_PER_PAGE = 4
+	let currentPage = $state(1)
+
+	// Calculate pagination
+	let totalPages = $derived(Math.ceil(data.posts.length / POSTS_PER_PAGE))
+	let startIndex = $derived((currentPage - 1) * POSTS_PER_PAGE)
+	let endIndex = $derived(startIndex + POSTS_PER_PAGE)
+	let paginatedPosts = $derived(data.posts.slice(startIndex, endIndex))
+	let hasNextPage = $derived(currentPage < totalPages)
+	let hasPrevPage = $derived(currentPage > 1)
+
+	function goToPage(page: number) {
+		currentPage = page
+		// Scroll to top when changing pages
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
 </script>
 
 <SEO title={config.title} description={config.description} type="website" />
@@ -28,7 +45,7 @@
 
 	<main class="main-content">
 		<ul class="posts">
-			{#each data.posts as post}
+			{#each paginatedPosts as post}
 				<li class="post">
 					<a href={post.slug} class="title"
 						>{post.status === 'tree' ? '🌳' : '🌱 (Draft)'} {post.title}</a
@@ -38,44 +55,46 @@
 				</li>
 			{/each}
 		</ul>
+
 		<p class="count">
-			My digital garden has {data.pagination.totalPosts} trees (posts)
+			My digital garden has {data.posts.length} trees (posts)
 		</p>
 
-		<!-- Pagination -->
-		{#if data.pagination.totalPages > 1}
+		<!-- Pagination Controls -->
+		{#if totalPages > 1}
 			<nav class="pagination" aria-label="Blog pagination">
 				<div class="pagination-controls">
-					{#if data.pagination.hasPrevPage}
-						<a
-							href="?page={data.pagination.currentPage - 1}"
+					{#if hasPrevPage}
+						<button
+							onclick={() => goToPage(currentPage - 1)}
 							class="pagination-btn prev"
 							aria-label="Previous page"
 						>
 							← Previous
-						</a>
+						</button>
 					{/if}
 
+					<!-- Page numbers -->
 					<div class="page-numbers">
-						{#each Array.from({ length: data.pagination.totalPages }, (_, i) => i + 1) as pageNum}
-							{#if pageNum === data.pagination.currentPage}
+						{#each Array.from({ length: totalPages }, (_, i) => i + 1) as pageNum}
+							{#if pageNum === currentPage}
 								<span class="page-number current" aria-current="page">{pageNum}</span>
-							{:else if Math.abs(pageNum - data.pagination.currentPage) <= 2 || pageNum === 1 || pageNum === data.pagination.totalPages}
-								<a href="?page={pageNum}" class="page-number">{pageNum}</a>
-							{:else if Math.abs(pageNum - data.pagination.currentPage) === 3}
+							{:else if Math.abs(pageNum - currentPage) <= 2 || pageNum === 1 || pageNum === totalPages}
+								<button onclick={() => goToPage(pageNum)} class="page-number">{pageNum}</button>
+							{:else if Math.abs(pageNum - currentPage) === 3}
 								<span class="page-ellipsis">…</span>
 							{/if}
 						{/each}
 					</div>
 
-					{#if data.pagination.hasNextPage}
-						<a
-							href="?page={data.pagination.currentPage + 1}"
+					{#if hasNextPage}
+						<button
+							onclick={() => goToPage(currentPage + 1)}
 							class="pagination-btn next"
 							aria-label="Next page"
 						>
 							Next →
-						</a>
+						</button>
 					{/if}
 				</div>
 			</nav>
@@ -235,9 +254,9 @@
 			background: var(--surface-3);
 			border: 1px solid var(--border);
 			border-radius: var(--radius-2);
-			text-decoration: none;
 			color: var(--text-1);
 			font-size: var(--font-size-1);
+			cursor: pointer;
 			transition: all 0.2s ease;
 
 			&:hover {
@@ -261,10 +280,12 @@
 			padding: var(--size-2);
 			min-width: var(--size-7);
 			text-align: center;
-			text-decoration: none;
 			color: var(--text-1);
+			border: none;
+			background: transparent;
 			border-radius: var(--radius-2);
 			font-size: var(--font-size-1);
+			cursor: pointer;
 			transition: all 0.2s ease;
 
 			&:hover {
@@ -275,6 +296,7 @@
 				background: var(--accent);
 				color: var(--accent-text);
 				font-weight: 600;
+				cursor: default;
 			}
 		}
 
