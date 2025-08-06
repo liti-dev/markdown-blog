@@ -8,31 +8,29 @@ export function formatDate(date: string, dateStyle: DateStyle = 'medium', locale
 }
 
 
-export function getCategoryColor(category: string): string {
-	const categoryColors: Record<string, string> = {
-		// Sustainability 
-		'sustainability': '#a7c957',      
-		'green-software': '#386641',      
-		  
-		// Dev
-		'vscode':'#ff8f94' ,                        
-		'reading-code': '#f72585',
-		'performance': '#ffb3c1',
-		'security':'#ae0039',
-		
-		// Others
-		'learning': '#8F00FF',
-	}
-	
-	return categoryColors[category] || '#6b7280' // ⚫ 
+// Precomputed category styles
+const categoryStyles: Record<string, { backgroundColor: string; color: string }> = {
+	'sustainability': { backgroundColor: '#a7c957', color: '#000000' },
+	'green-software': { backgroundColor: '#386641', color: '#ffffff' },
+	'vscode': { backgroundColor: '#ff8f94', color: '#000000' },
+	'reading-code': { backgroundColor: '#f72585', color: '#ffffff' },
+	'performance': { backgroundColor: '#ffb3c1', color: '#000000' },
+	'security': { backgroundColor: '#ae0039', color: '#ffffff' },
+	'learning': { backgroundColor: '#8F00FF', color: '#ffffff' },
 }
 
-// get text color based on background
+const defaultStyle = { backgroundColor: '#6b7280', color: '#ffffff' }
+
+export function getCategoryColor(category: string): string {
+	return categoryStyles[category]?.backgroundColor || defaultStyle.backgroundColor
+}
+
 export function getCategoryTextColor(category: string): string {
-	const darkBackgrounds = ['#386641', '#bc4749', '#f72585', '#ae0039','#6a994e']
-	const bgColor = getCategoryColor(category)
-	
-	return darkBackgrounds.includes(bgColor) ? '#ffffff' : '#000000'
+	return categoryStyles[category]?.color || defaultStyle.color
+}
+
+export function getCategoryStyles(category: string): { backgroundColor: string; color: string } {
+	return categoryStyles[category] || defaultStyle
 }
 
 export async function getBacklinks(targetSlug: string): Promise<Array<{ slug: string; title: string; description: string }>> {

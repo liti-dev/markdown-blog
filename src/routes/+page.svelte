@@ -1,18 +1,28 @@
 <script lang="ts">
-	import { formatDate } from '$lib/utils'
+	import { formatDate, getCategoryStyles } from '$lib/utils'
 	import * as config from '$lib/config'
 	import SEO from '$lib/components/SEO.svelte'
-	import { getCategoryColor, getCategoryTextColor } from '$lib/utils'
 
 	let { data } = $props()
 </script>
 
 <SEO title={config.title} description={config.description} type="website" />
 
+<svelte:head>
+	<link rel="preload" as="image" href="/garden.png" />
+</svelte:head>
+
 <div class="layout-container">
 	<!-- shows only on mobile -->
 	<div class="mobile-garden">
-		<img src="/garden.png" alt="mind garden" width="70%" />
+		<img
+			src="/garden.png"
+			alt="mind garden"
+			width="70%"
+			fetchpriority="high"
+			loading="eager"
+			decoding="sync"
+		/>
 	</div>
 
 	<main class="main-content">
@@ -38,13 +48,12 @@
 
 			<ul class="categories">
 				{#each data.categories as category}
+					{@const styles = getCategoryStyles(category)}
 					<li>
 						<a
 							href={`/category/${category}`}
 							class="category-link"
-							style="background-color: {getCategoryColor(category)}; color: {getCategoryTextColor(
-								category
-							)}"
+							style="background-color: {styles.backgroundColor}; color: {styles.color}"
 						>
 							#{category}
 						</a>
@@ -54,7 +63,7 @@
 		</div>
 		<!-- shows only on desktop -->
 		<div class="desktop-garden">
-			<img src="/garden.png" alt="mind garden" width="300px" />
+			<img src="/garden.png" alt="mind garden" width="300px" loading="lazy" decoding="async" />
 		</div>
 	</aside>
 </div>
