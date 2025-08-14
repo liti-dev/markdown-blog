@@ -1,6 +1,10 @@
 import { getPosts } from '$lib/posts'
 import { url } from '$lib/config'
 
+export const config = {
+	runtime: 'edge'
+}
+
 export async function GET() {
 	const posts = await getPosts()
 	const baseUrl = url

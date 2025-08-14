@@ -1,6 +1,10 @@
 import { getPosts } from '$lib/posts'
 import { error } from '@sveltejs/kit'
 
+export const config = {
+	runtime: 'edge'
+}
+
 export async function load() {
 	try {
 		const posts = await getPosts()
