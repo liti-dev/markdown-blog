@@ -1,38 +1,54 @@
-# sv
+# Markdown Blog
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A fast, modern blog built with SvelteKit and deployed on Vercel. Features markdown-based content with syntax highlighting, categorization, and optimized performance.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 📝 Markdown-based blog posts with frontmatter
+- 🎨 Syntax highlighting with Shiki
+- 🏷️ Category-based post organization
+- 📱 Responsive design with Open Props
+- ⚡ Edge Runtime for fast global performance
+- 🔍 SEO-optimized with automatic sitemap generation
+- 📊 Vercel Analytics and Speed Insights integration
+
+## Tech Stack
+
+- **Framework**: SvelteKit 2
+- **Styling**: Open Props + CSS
+- **Markdown**: MDsveX with Shiki highlighting
+- **Deployment**: Vercel (Edge Runtime)
+- **Typography**: Atkinson Hyperlegible + JetBrains Mono
+
+## Getting Started
 
 ```bash
-# create a new project in the current directory
-npx sv create
+# Install dependencies
+npm install
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# Start development server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
+# Build for production
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## Writing Posts
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Create markdown files in `src/posts/` with frontmatter:
+
+```markdown
+---
+title: "Your Post Title"
+date: "2024-01-01"
+categories: ["tech", "web"]
+published: true
+description: "Brief description"
+---
+
+Your content here...
+```
+
+## Deployment
+
+Optimized for Vercel with automatic deployments from GitHub. Edge Runtime ensures fast cold starts globally.
