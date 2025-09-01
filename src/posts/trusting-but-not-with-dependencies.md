@@ -6,7 +6,7 @@ categories:
   - security
   - learning
 published: true
-status: sprout
+status: tree
 ---
 
 Third-party dependencies aren't just helpful, they're the backbone of modern software development. They let us build faster, standing on the shoulders of brilliant open-source contributors. But every time we install a package, we also invite someone else's code into our app, and with it, their bugs, their decisions, and their security holes.
@@ -31,5 +31,11 @@ npm audit
 npx npq install some-new-lib
 ```
 
-
+- Be extra-careful when copy-pasting package installation into the terminal. Make sure to verify in the source code repo as well as on the npm registry that this is indeed the package you are intending to install. 
+You might verify the metadata of the package with `npm info` to fetch more information about contributors and latest versions (More details at [owasp security cheetsheets](https://cheatsheetseries.owasp.org/cheatsheets/NPM_Security_Cheat_Sheet.html))
+- When installing, append the `--ignore-scripts` to reduce the risk of arbitrary command execution. For example: 
+```bash 
+npm install my-malicious-package --ignore-scripts
+```
+- When managing packages, running `npm outdated` helps reveal which packages are out of date. But rushing to upgrade dependencies to their latest releases is not necessarily a good practice. It's best to review release notes, the code changes, etc. 
 - Lock version. `package-lock.json` used to confuse me. Lock files provide a record of which versions of dependencies are in use, making it easier to audit and roll back, preventing accidental introduction of newer versions that might contain vulnerabilities
