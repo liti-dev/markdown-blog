@@ -10,13 +10,13 @@
 
 	<p>
 		I'm Thuyet (Tia) Nguyen, a teacher-turned-fullstack engineer with a passion for animal welfare
-		and sustainability. 🐶 Animal lover 🧠 Powered by an ADHD brain
+		and sustainability.
 	</p>
 
 	<p>
 		I'm on the journey of making green software accessible, helping people and the planet at scale.
-		I've worked on projects for purpose-driven companies such as DiverseTalent.ai, Article1, Diginex
-		ESG builder.
+		I've worked for purpose-driven companies such as DiverseTalent.ai, Article1, Diginex ESG
+		builder.
 	</p>
 
 	<p>
@@ -25,12 +25,13 @@
 		non-tech stakeholders.
 	</p>
 
-	<p>When not coding, I'm advocating for Green Software at local tech events:</p>
+	<p>When not coding, I'm speaking at tech events:</p>
 	<ul>
+		<li>Northern Ireland Developers Conference 2025</li>
 		<li>Vienna Women Techmakers 2025</li>
 		<li>Huddle Hive Hackathon 2024</li>
 		<li>Belfast Green Software meetup 2023</li>
-		<li>Northern Ireland Developer Conference 2023</li>
+		<li>Northern Ireland Developers Conference 2023</li>
 	</ul>
 </div>
 

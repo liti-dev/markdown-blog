@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte'
 
-	let lastUpdated = 'Aug 2025'
+	let lastUpdated = 'Sep 2025'
 </script>
 
 <SEO title="Now - What I've been up to" description="What I'm focusing on in my life" />
@@ -28,15 +28,16 @@
 					<ul>
 						<li>
 							Building and maintaining <a href="/vscarbon-grid-aware-vscode-extension">VSCarbon</a> -
-							a VS Code extension that fosters low-carbon coding, and this digital garden.
+							a VS Code extension that fosters low-carbon coding.
 						</li>
+						<li>Writing (docs and this digital garden)</li>
 						<li>Job searching</li>
 						<li>
 							Contributing to <a
 								href="https://github.com/sveltevietnam/sveltevietnam.dev"
 								target="_blank"
 								rel="noopener">Svelte Viet Nam</a
-							>
+							> and Tech4Good projects
 						</li>
 						<li>
 							Learning data viz using Svelte and D3, a little bit of architecture and other
@@ -48,7 +49,25 @@
 						</li>
 					</ul>
 				</section>
+
 				<section class="focus-item">
+					<h2>September 2025</h2>
+					<ul>
+						<li>Putting myself out there (tech talks, expanding network)</li>
+						<li>
+							Exploring <a href="https://data.gov.sg/" rel="noopener">open data portal</a> and wishing
+							Vietnam could do something similar (actually they're in the process)
+						</li>
+						<li>
+							Starting ReCeiptly - an receipt scanner app that reveals insights into shopping habits
+							and tracks carbon footprint.
+						</li>
+						<li>
+							<a href="https://github.com/namesakefyi/namesake" rel="noopener">Namesake</a> is an aesthetic
+							and cool app that helps people in the U.S. navigate the legal name and gender marker change
+							process
+						</li>
+					</ul>
 					<h2>August 2025</h2>
 					<ul>
 						<li>

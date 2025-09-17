@@ -6,7 +6,7 @@ categories:
   - learning
   - reading-code
 published: true
-status: sprout
+status: tree
 ---
 
 When I first started coding, I thought writing code was the hard part. Turns out, reading code, especially someone else’s, can be even harder.
@@ -21,11 +21,11 @@ According to [The Programmer’s Brain](https://www.felienne.com/book) (by Felie
 
 Looking at open-source projects, I felt completely lost. Where do I start? Which component is responsible for the UI I see? This is something I wasn't taught when following online bootcamps/courses. It's true that most courses teach writing code rather than reading code.
 
-It wasn’t until my internship that I learned how to navigate large codebases with more confidence (I felt grateful for having an awesome team lead at Hodfords who spent half of his time mentoring me and the other half telling me off. Just kidding. But I'm missing this dynamic LOL). 
-
+It wasn’t until my internship that I learned how to navigate large codebases with more confidence (I felt grateful for having an awesome team lead at Hodfords who spent half of his time mentoring me and the other half telling me off. Just kidding. But I'm missing this dynamic LOL).
 
 ## Strategies That Changed Everything
-- Read documentation and guidelines (if there's any): I used to jump right into `src` to read code. But I realised the better way is reading these readme or contribution guidelines, as they help understand naming conventions, design patterns, and above all, the logic behind file organisation. 
+
+- Read documentation and guidelines (if there's any): I used to jump right into `src` to read code. But I realised the better way is reading these readme or contribution guidelines, as they help understand naming conventions, design patterns, and above all, the logic behind file organisation.
 
 - Explore folder structure: I would start with understanding how the project is organised to predict where things live.
 
@@ -38,6 +38,7 @@ It wasn’t until my internship that I learned how to navigate large codebases w
 - Use GitLens: I love this extension because it shows me commit history, like who contributed to what, in the file I'm looking at. If there's any confusion I can't figure out yet, I'll go ask the person who wrote that code. This is collaboration!
 
 ## Making Code Easier to Read
+
 The more I struggle with reading code, the more I appreciate readable code. What helps?
 
 - Consistent coding style (which might be going downhill in this AI gen era)
