@@ -38,14 +38,14 @@ export async function load({ params }) {
 
 	try {
 		posts = await getPostsByCategory(category as Categories)
-		
 	} catch (e) {
-		error(500, `Failed to load posts for category "${category}"`)
+		// On Vercel/production, SvelteKit only exposes error.message if pass an object as the second argument to error(). Passing a string will not expose it
+		throw error(500, { message: `Failed to load posts for category "${category}"` })
 	}
 
 	if (posts.length === 0) {
-		error(404, `No posts found in category "${category}"`)
+		throw error(404, { message: `No posts found for category "${category}"` })
 	}
 
-	return {posts, category}
+	return { posts, category }
 }
