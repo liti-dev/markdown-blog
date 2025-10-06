@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte'
 
-	let lastUpdated = 'Sep 2025'
+	let lastUpdated = 'Oct 2025'
 </script>
 
 <SEO title="Now - What I've been up to" description="What I'm focusing on in my life" />
@@ -51,6 +51,17 @@
 				</section>
 
 				<section class="focus-item">
+					<h2>October 2025</h2>
+					<ul>
+						<li>Tech talk about green sofware for Women Coding Community</li>
+						<li>
+							Playing with Threlte for a <a
+								href="https://threlte-fullmoon.vercel.app/"
+								rel="noopener">fullmoon project (models are from Sketchfab)</a
+							>
+						</li>
+						<li>Exploring cool projects like Soil benchmark, Qualia, etc.</li>
+					</ul>
 					<h2>September 2025</h2>
 					<ul>
 						<li>Putting myself out there (tech talks, expanding network)</li>
@@ -67,6 +78,7 @@
 							and cool app that helps people in the U.S. navigate the legal name and gender marker change
 							process
 						</li>
+						<li>Attended Green IO</li>
 					</ul>
 					<h2>August 2025</h2>
 					<ul>
