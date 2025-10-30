@@ -7,7 +7,7 @@ categories:
   - local-first
   - vscode
 published: true
-status: sprout
+status: tree
 ---
 
 The more I build, the more I see a pattern unfolding.
