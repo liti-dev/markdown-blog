@@ -9,14 +9,15 @@ export function formatDate(date: string, dateStyle: DateStyle = 'medium', locale
 
 // Precomputed category styles
 const categoryStyles: Record<string, { backgroundColor: string; color: string }> = {
-	sustainability: { backgroundColor: '#a7c957', color: '#000000' },
+	'sustainability': { backgroundColor: '#a7c957', color: '#000000' },
 	'green-software': { backgroundColor: '#386641', color: '#ffffff' },
-	vscode: { backgroundColor: '#ff8f94', color: '#000000' },
+	'vscode': { backgroundColor: '#ff8f94', color: '#000000' },
 	'reading-code': { backgroundColor: '#f72585', color: '#ffffff' },
-	performance: { backgroundColor: '#ffb3c1', color: '#000000' },
-	security: { backgroundColor: '#ae0039', color: '#ffffff' },
-	learning: { backgroundColor: '#8F00FF', color: '#ffffff' },
-	'local-first': { backgroundColor: '#2ec4b6', color: '#000000' }
+	'performance': { backgroundColor: '#ffb3c1', color: '#000000' },
+	'security': { backgroundColor: '#ae0039', color: '#ffffff' },
+	'learning': { backgroundColor: '#8F00FF', color: '#ffffff' },
+	'local-first': { backgroundColor: '#2ec4b6', color: '#000000' },
+	'robotics': { backgroundColor: '#ff9f1c', color: '#000000' }
 }
 
 const defaultStyle = { backgroundColor: '#6b7280', color: '#ffffff' }
