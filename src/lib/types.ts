@@ -6,7 +6,11 @@ export type Categories =
 	| 'performance'
 	| 'sustainability'
 	| 'svelte'
-	|	'security'
+	| 'security'
+	| 'software'
+	| 'career'
+	| 'robotics'
+	| 'local-first'
 
 export type Post = {
 	title: string

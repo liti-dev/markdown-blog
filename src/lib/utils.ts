@@ -7,20 +7,22 @@ export function formatDate(date: string, dateStyle: DateStyle = 'medium', locale
 	return dateFormatter.format(dateToFormat)
 }
 
-// Precomputed category styles
+// Precomputed category styles — outline color per genre
 const categoryStyles: Record<string, { backgroundColor: string; color: string }> = {
-	'sustainability': { backgroundColor: '#a7c957', color: '#000000' },
-	'green-software': { backgroundColor: '#386641', color: '#ffffff' },
-	'vscode': { backgroundColor: '#ff8f94', color: '#000000' },
-	'reading-code': { backgroundColor: '#f72585', color: '#ffffff' },
-	'performance': { backgroundColor: '#ffb3c1', color: '#000000' },
-	'security': { backgroundColor: '#ae0039', color: '#ffffff' },
-	'learning': { backgroundColor: '#8F00FF', color: '#ffffff' },
-	'local-first': { backgroundColor: '#2ec4b6', color: '#000000' },
-	'robotics': { backgroundColor: '#ff9f1c', color: '#000000' }
+	'sustainability': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 145)' },
+	'green-software': { backgroundColor: 'transparent', color: 'oklch(0.50 0.05 145)' },
+	'vscode': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 280)' },
+	'reading-code': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 60)' },
+	'performance': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 200)' },
+	'security': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 25)' },
+	'learning': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 170)' },
+	'local-first': { backgroundColor: 'transparent', color: 'oklch(0.50 0.05 180)' },
+	'robotics': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 80)' },
+	'software': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 240)' },
+	'career': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 50)' }
 }
 
-const defaultStyle = { backgroundColor: '#6b7280', color: '#ffffff' }
+const defaultStyle = { backgroundColor: 'transparent', color: 'oklch(0.55 0.03 90)' }
 
 export function getCategoryColor(category: string): string {
 	return categoryStyles[category]?.backgroundColor || defaultStyle.backgroundColor
