@@ -125,7 +125,7 @@
 
 <style>
 	.layout-container {
-		max-inline-size: var(--size-content-3);
+		max-inline-size: 60vw;
 		margin-inline: auto;
 	}
 
@@ -134,13 +134,13 @@
 	}
 
 	.page-header {
-		margin-bottom: var(--size-7);
+		margin-bottom: var(--space-7);
 		text-align: center;
 
 		h1 {
 			font-family: 'Silkscreen', monospace;
-			font-size: var(--font-size-fluid-3);
-			margin-bottom: var(--size-3);
+			font-size: var(--text-2xl);
+			margin-bottom: var(--space-3);
 			color: var(--text-1);
 		}
 
@@ -152,42 +152,39 @@
 	}
 
 	.intro {
-		background: var(--surface-2);
 		border: 1px solid var(--border);
-		border-radius: var(--radius-2);
-		padding: var(--size-5);
-		margin-bottom: var(--size-7);
-		border-left: 4px solid var(--brand);
+		padding: var(--space-5);
+		margin-bottom: var(--space-7);
+		border-left: 3px solid var(--brand);
 	}
 
 	.focus-areas {
 		display: grid;
-		gap: var(--size-7);
-		margin-bottom: var(--size-7);
+		gap: var(--space-7);
+		margin-bottom: var(--space-7);
 	}
 
 	.focus-item {
-		background: var(--surface-2);
 		border: 1px solid var(--border);
-		border-radius: var(--radius-2);
-		padding: var(--size-5);
+		padding: var(--space-5);
 
 		h2 {
 			margin-top: 0;
-			margin-bottom: var(--size-3);
+			margin-bottom: var(--space-4);
 			color: var(--text-1);
-			font-size: var(--font-size-fluid-2);
+			font-family: var(--font-mono);
+			font-size: var(--text-lg);
 		}
 
 		ul {
 			margin: 0;
-			list-style-type: '✦';
-			padding-left: var(--size-5);
+			list-style-type: '› ';
+			padding-left: var(--space-5);
 		}
 
 		li {
-			margin-block: var(--size-2);
-			padding-inline-start: var(--size-2);
+			margin-block: var(--space-2);
+			padding-inline-start: var(--space-2);
 			color: var(--text-1);
 		}
 	}

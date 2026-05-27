@@ -25,32 +25,43 @@
 
 <style>
 	nav {
-		padding-block: var(--size-7);
+		padding-block: var(--space-6);
+		border-bottom: 1px solid var(--border);
 
 		@media (min-width: 768px) {
 			display: flex;
+			align-items: center;
 			justify-content: space-between;
 		}
 
 		.links {
-			margin-block: var(--size-7);
+			margin-block: var(--space-4);
 
 			@media (min-width: 768px) {
 				display: flex;
-				gap: var(--size-7);
+				gap: var(--space-6);
 				margin-block: 0;
 			}
 		}
 
 		a {
-			color: inherit;
-			font-size: var(--size-5);
-			/* text-decoration: none; */
-			text-decoration: underline dashed var(--green-5) 3px;
-			text-underline-offset: 5px;
+			color: var(--text-2);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			text-decoration: none;
+			border-bottom: none;
+			transition: color 0.2s ease;
+
 			&:hover {
-				color: var(--green-7);
+				color: var(--brand);
 			}
+		}
+
+		.title {
+			color: var(--text-1);
+			font-size: var(--text-base);
 		}
 	}
 </style>

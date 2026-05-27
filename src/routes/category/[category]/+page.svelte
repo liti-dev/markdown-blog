@@ -28,27 +28,30 @@
 <style>
 	.posts {
 		display: grid;
-		gap: var(--size-7);
+		gap: var(--space-7);
 
 		.post {
-			max-inline-size: var(--size-content-3);
+			max-inline-size: 60vw;
 
 			&:not(:last-child) {
 				border-bottom: 1px solid var(--border);
-				padding-bottom: var(--size-7);
+				padding-bottom: var(--space-7);
 			}
 
 			.title {
-				font-size: var(--font-size-fluid-2);
+				font-size: var(--text-xl);
 				text-transform: capitalize;
 			}
 
 			.date {
 				color: var(--text-2);
+				font-family: var(--font-mono);
+				font-size: var(--text-xs);
+				margin-top: var(--space-2);
 			}
 
 			.description {
-				margin-top: var(--size-3);
+				margin-top: var(--space-3);
 			}
 		}
 	}

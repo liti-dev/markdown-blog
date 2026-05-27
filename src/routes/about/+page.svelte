@@ -37,20 +37,22 @@
 
 <style>
 	.text-column {
-		margin: 0 var(--size-7);
+		max-inline-size: 60vw;
+		margin-inline: auto;
 	}
 
 	ul {
-		margin: 1rem 0;
+		margin: var(--space-4) 0;
 	}
 
 	li {
-		list-style: '⭐';
-		margin: 0 1rem;
-		padding: 0.5rem;
+		list-style: '› ';
+		margin: 0 var(--space-4);
+		padding: var(--space-2);
 	}
 
 	p {
-		margin-bottom: 1.5rem;
+		margin-bottom: var(--space-5);
+		line-height: var(--leading-relaxed);
 	}
 </style>

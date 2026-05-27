@@ -2,10 +2,9 @@
 	import { formatDate } from '$lib/utils'
 	import Backlinks from '$lib/components/Backlinks.svelte'
 	import SEO from '$lib/components/SEO.svelte'
-	import { getCategoryColor, getCategoryTextColor } from '$lib/utils'
+	import Tag from '$lib/components/Tag.svelte'
 
 	let { data } = $props()
-	// console.log('meta', data)
 </script>
 
 <SEO
@@ -29,16 +28,7 @@
 
 	<div class="tags">
 		{#each data.meta.categories as category}
-			<a href={`/category/${category}`}>
-				<span
-					class="tag"
-					style="background-color: {getCategoryColor(category)}; color: {getCategoryTextColor(
-						category
-					)}"
-				>
-					&num;{category}
-				</span>
-			</a>
+			<Tag {category} href={`/category/${category}`} />
 		{/each}
 	</div>
 
@@ -51,15 +41,17 @@
 
 <style>
 	.back-nav {
-		max-inline-size: var(--size-content-3);
+		max-inline-size: 60vw;
 		margin-inline: auto;
-		margin-bottom: var(--size-5);
+		margin-bottom: var(--space-5);
 
 		a {
 			color: var(--text-2);
 			text-decoration: none;
-			font-size: var(--font-size-3);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
 			transition: color 0.2s ease;
+			border-bottom: none;
 
 			&:hover {
 				color: var(--text-1);
@@ -68,39 +60,29 @@
 	}
 
 	article {
-		max-inline-size: var(--size-content-3);
+		max-inline-size: 60vw;
 		margin-inline: auto;
 
 		h1 {
 			text-transform: capitalize;
-			font-size: var(--font-size-fluid-3);
+			font-size: var(--text-2xl);
+			font-weight: var(--weight-bold);
+			line-height: var(--leading-tight);
+			max-inline-size: none;
 		}
 
 		h1 + p {
-			margin-top: var(--size-2);
+			margin-top: var(--space-2);
 			color: var(--text-2);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
 		}
 
 		.tags {
 			display: flex;
-			gap: var(--size-3);
-			margin-top: var(--size-7);
+			gap: var(--space-3);
+			margin-top: var(--space-5);
 			flex-wrap: wrap;
-
-			a {
-				text-decoration: none;
-			}
-
-			.tag {
-				padding: var(--size-1) var(--size-2);
-				border-radius: var(--radius-2);
-				font-size: var(--font-size-1);
-				transition: opacity 0.2s ease;
-			}
-
-			.tag:hover {
-				opacity: 0.8;
-			}
 		}
 	}
 </style>
