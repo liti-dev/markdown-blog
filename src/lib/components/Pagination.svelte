@@ -65,32 +65,35 @@
 
 <style>
 	.pagination {
-		margin-top: var(--size-8);
-		padding: var(--size-5);
-		max-inline-size: var(--size-content-3);
+		margin-top: var(--space-8);
+		padding: var(--space-5);
 		margin-inline: auto;
 
 		.pagination-controls {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			gap: var(--size-2);
+			gap: var(--space-2);
 			flex-wrap: wrap;
 		}
 
 		.pagination-btn {
-			padding: var(--size-2) var(--size-3);
-			background: var(--surface-3);
+			padding: var(--space-2) var(--space-4);
+			background: transparent;
 			border: 1px solid var(--border);
-			border-radius: var(--radius-2);
+			border-radius: 0;
+			box-shadow: none;
 			color: var(--text-1);
-			font-size: var(--font-size-1);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
 			cursor: pointer;
-			transition: all 0.2s ease;
+			transition: border-color 0.2s ease, color 0.2s ease;
 
 			&:hover {
-				background: var(--surface-4);
-				transform: translateY(-1px);
+				border-color: var(--brand);
+				color: var(--brand);
+				background: transparent;
+				transform: none;
 			}
 
 			&.prev,
@@ -102,44 +105,49 @@
 		.page-numbers {
 			display: flex;
 			align-items: center;
-			gap: var(--size-1);
+			gap: var(--space-1);
 		}
 
 		.page-number {
-			padding: var(--size-2);
-			min-width: var(--size-7);
+			padding: var(--space-2);
+			min-width: var(--space-7);
 			text-align: center;
-			color: var(--text-1);
-			border: none;
+			color: var(--text-2);
+			border: 1px solid transparent;
 			background: transparent;
-			border-radius: var(--radius-2);
-			font-size: var(--font-size-1);
+			border-radius: 0;
+			box-shadow: none;
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
 			cursor: pointer;
-			transition: all 0.2s ease;
+			transition: border-color 0.2s ease, color 0.2s ease;
 
 			&:hover {
-				background: var(--surface-3);
+				border-color: var(--border);
+				color: var(--text-1);
+				background: transparent;
 			}
 
 			&.current {
-				background: var(--accent);
-				color: var(--accent-text);
+				border-color: var(--brand);
+				color: var(--brand);
+				background: transparent;
 				font-weight: 600;
 				cursor: default;
 			}
 		}
 
 		.page-ellipsis {
-			padding: var(--size-2);
+			padding: var(--space-2);
 			color: var(--text-2);
-			font-size: var(--font-size-1);
+			font-family: var(--font-mono);
+			font-size: var(--text-sm);
 		}
 
-		/* Mobile responsive */
 		@media (max-width: 480px) {
 			.pagination-controls {
 				flex-direction: column;
-				gap: var(--size-3);
+				gap: var(--space-3);
 			}
 
 			.page-numbers {

@@ -24,50 +24,50 @@
 
 <style>
 	.backlinks {
-		margin-top: var(--size-8);
-		padding-top: var(--size-6);
+		margin-top: var(--space-8);
+		padding-top: var(--space-6);
 	}
 
 	.backlinks hr {
 		border: none;
 		border-top: 1px solid var(--border);
-		margin-bottom: var(--size-6);
+		margin-bottom: var(--space-5);
 	}
 
 	.backlinks h2 {
-		font-size: var(--font-size-3);
-		margin-bottom: var(--size-3);
-		color: var(--text-1);
+		font-family: var(--font-mono);
+		font-size: var(--text-sm);
+		margin-bottom: var(--space-4);
+		color: var(--text-2);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 	}
 
 	.backlinks-list {
 		list-style: none;
 		padding: 0;
-		display: grid;
-		gap: var(--size-4);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-2);
 	}
 
 	.backlink-item {
-		padding: var(--size-3);
-		background: var(--surface-2);
-		border-radius: var(--radius-2);
-		border: 1px solid var(--border);
-		transition: background-color 0.2s ease;
-	}
-
-	.backlink-item:hover {
-		background: var(--surface-3);
+		padding: 0;
 	}
 
 	.backlink-title {
-		font-weight: 600;
-		color: var(--text-1);
+		color: var(--brand);
 		text-decoration: none;
-		display: block;
-		margin-bottom: var(--size-2);
+		border-bottom: 1px solid transparent;
+		transition: border-color 0.2s ease;
 	}
 
 	.backlink-title:hover {
-		color: var(--brand);
+		border-bottom-color: currentColor;
+	}
+
+	.backlink-title::before {
+		content: '← ';
+		color: var(--text-2);
 	}
 </style>

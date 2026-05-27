@@ -29,7 +29,7 @@
 
 		> * {
 			display: flex;
-			gap: var(--size-2);
+			gap: var(--space-2);
 		}
 	}
 </style>
