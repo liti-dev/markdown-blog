@@ -2,9 +2,6 @@
 	import Footer from './footer.svelte'
 	import Header from './header.svelte'
 
-	import 'open-props/style'
-	import 'open-props/normalize'
-	import 'open-props/buttons'
 	import '../app.css'
 
 	let { children, data } = $props()
@@ -22,19 +19,23 @@
 
 <style>
 	.layout {
-		height: 100%;
+		min-height: 100vh;
 		max-inline-size: 1440px;
 		display: grid;
 		grid-template-rows: auto 1fr auto;
 		margin-inline: auto;
-		padding-inline: var(--size-7);
+		padding-inline: var(--space-5);
+
+		@media (min-width: 768px) {
+			padding-inline: var(--space-7);
+		}
 
 		@media (min-width: 1440px) {
-			padding-inline: 0;
+			padding-inline: var(--space-9);
 		}
 
 		main {
-			padding-block: var(--size-9);
+			padding-block: var(--space-7);
 		}
 	}
 </style>
