@@ -1,4 +1,4 @@
-export type Categories = 
+export type Categories =
 	| 'vscode'
 	| 'green-software'
 	| 'learning'

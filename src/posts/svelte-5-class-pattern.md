@@ -6,9 +6,13 @@ published: false
 status: sprout
 ---
 
-While preparing for the new job, I wanted to solidify my understanding of Svelte 5's features, particularly the state management. For state sharing across components, Context API (or createContext) is what I'd go for. The reason is I prefer simplicity, native pattern, and less boilerplate.
+While preparing for the new job, I wanted to solidify my understanding of Svelte
+5's features, particularly the state management. For state sharing across
+components, Context API (or createContext) is what I'd go for. The reason is I
+prefer simplicity, native pattern, and less boilerplate.
 
-However, the company's project is using a class-based state + hooks pattern, which may requires writing more code and steeper learning curve.
+However, the company's project is using a class-based state + hooks pattern,
+which may requires writing more code and steeper learning curve.
 
 Example:
 
@@ -40,21 +44,29 @@ export class PokemonTrainerState {
 ```ts
 // useTrainer.svelte.ts
 // Hook as orchestrator to use the state class in Svelte components (merge options, create or reuse state, etc)
-export function useTrainer(options: () => Partial<TrainerOptions> = () => ({})): TrainerPublic {
-	const opts = $derived.by(() => ({ ...trainerDefaults, ...(options?.() || {}) }))
+export function useTrainer(
+  options: () => Partial<TrainerOptions> = () => ({})
+): TrainerPublic {
+  const opts = $derived.by(() => ({
+    ...trainerDefaults,
+    ...(options?.() || {})
+  }))
 
-	const existing = hasContext(TRAINER_KEY) ? getContext<TrainerPublic>(TRAINER_KEY) : undefined
-	const created = !(existing && opts.inherit)
+  const existing = hasContext(TRAINER_KEY)
+    ? getContext<TrainerPublic>(TRAINER_KEY)
+    : undefined
+  const created = !(existing && opts.inherit)
 
-	const state = existing && opts.inherit ? existing : new PokemonTrainerState(() => opts)
+  const state =
+    existing && opts.inherit ? existing : new PokemonTrainerState(() => opts)
 
-	if (!existing || !opts.inherit) {
-		setContext(TRAINER_KEY, state)
-	}
-	$effect(() => {
-		// orchestrate frame updates, event listeners, subscriptions
-	})
-	return state
+  if (!existing || !opts.inherit) {
+    setContext(TRAINER_KEY, state)
+  }
+  $effect(() => {
+    // orchestrate frame updates, event listeners, subscriptions
+  })
+  return state
 }
 ```
 
@@ -78,13 +90,20 @@ const trainer: TrainerPublic = useTrainer(() => ({ logging, autoRun }))
 
 Why this pattern?
 
-I reckon their choice depends on business requirements. The project may involve complex 3D scene state (this is also the pattern employed by Threlte) with multiple susbsystems (physics, rendering)
+I reckon their choice depends on business requirements. The project may involve
+complex 3D scene state (this is also the pattern employed by Threlte) with
+multiple susbsystems (physics, rendering)
 
 In short, Class + Hook advantages:
 
-- Complex state logic (e.g. camera transforms, objects, physics all in one class with private fields)
-- Multi-state composition (high reusability): one hook can manage camera state + scene state + physics state together
-- Centralised orchestration: `$effect` in hook orchestrates frame updates, event listeners, subscriptions
-- Performance optimisation: private state + controlled mutations avoid unintended rerenders
+- Complex state logic (e.g. camera transforms, objects, physics all in one class
+  with private fields)
+- Multi-state composition (high reusability): one hook can manage camera state +
+  scene state + physics state together
+- Centralised orchestration: `$effect` in hook orchestrates frame updates, event
+  listeners, subscriptions
+- Performance optimisation: private state + controlled mutations avoid
+  unintended rerenders
 
-The question is whether should we go hybrid (createContext for UI/dashboard and Class+ Hook for real-time visualisation and Threlte)?
+The question is whether should we go hybrid (createContext for UI/dashboard and
+Class+ Hook for real-time visualisation and Threlte)?

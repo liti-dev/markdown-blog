@@ -4,16 +4,29 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { mdsvex, escapeSvelte } from 'mdsvex'
 import { createHighlighter } from 'shiki'
 
+const langs = ['javascript', 'typescript', 'json', 'bash', 'cpp', 'css', 'html', 'svelte']
+
+let highlighterInstance
+
+async function getHighlighter() {
+	if (!highlighterInstance) {
+		highlighterInstance = await createHighlighter({
+			themes: ['poimandres'],
+			langs
+		})
+	}
+	return highlighterInstance
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await createHighlighter({
-				themes: ['poimandres'],
-				langs: ['javascript', 'typescript', 'json', 'bash', 'cpp', 'css', 'html', 'svelte']
-			})
-			await highlighter.loadLanguage('javascript', 'typescript', 'json', 'bash', 'cpp', 'css', 'html', 'svelte')
+			const highlighter = await getHighlighter()
+			if (!langs.includes(lang)) {
+				lang = 'text'
+			}
 			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: 'poimandres' }))
 			return `{@html \`${html}\` }`
 		}
@@ -33,8 +46,7 @@ const config = {
 		}
 	},
 	kit: {
-		adapter: adapter(),
-		
+		adapter: adapter()
 	}
 }
 

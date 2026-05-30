@@ -1,6 +1,8 @@
 # Markdown Blog
 
-A fast, modern blog built with SvelteKit and deployed on Vercel. Features markdown-based content with syntax highlighting, categorization, and optimized performance.
+A fast, modern blog built with SvelteKit and deployed on Vercel. Features
+markdown-based content with syntax highlighting, categorization, and optimized
+performance.
 
 ## Features
 
@@ -39,11 +41,11 @@ Create markdown files in `src/posts/` with frontmatter:
 
 ```markdown
 ---
-title: "Your Post Title"
-date: "2024-01-01"
-categories: ["tech", "web"]
+title: 'Your Post Title'
+date: '2024-01-01'
+categories: ['tech', 'web']
 published: true
-description: "Brief description"
+description: 'Brief description'
 ---
 
 Your content here...
@@ -51,4 +53,5 @@ Your content here...
 
 ## Deployment
 
-Optimized for Vercel with automatic deployments from GitHub. Edge Runtime ensures fast cold starts globally.
+Optimized for Vercel with automatic deployments from GitHub. Edge Runtime
+ensures fast cold starts globally.

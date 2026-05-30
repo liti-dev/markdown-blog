@@ -6,7 +6,7 @@ export const prerender = true
 export async function load({ params }) {
 	try {
 		const post = await import(`../../posts/${params.slug}.md`)
-		
+
 		// Pre-compute backlinks at build time
 		const backlinks = await getBacklinks(params.slug)
 

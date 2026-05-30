@@ -9,17 +9,17 @@ export function formatDate(date: string, dateStyle: DateStyle = 'medium', locale
 
 // Precomputed category styles — outline color per genre
 const categoryStyles: Record<string, { backgroundColor: string; color: string }> = {
-	'sustainability': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 145)' },
+	sustainability: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 145)' },
 	'green-software': { backgroundColor: 'transparent', color: 'oklch(0.50 0.05 145)' },
-	'vscode': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 280)' },
+	vscode: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 280)' },
 	'reading-code': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 60)' },
-	'performance': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 200)' },
-	'security': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 25)' },
-	'learning': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 170)' },
+	performance: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 200)' },
+	security: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 25)' },
+	learning: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 170)' },
 	'local-first': { backgroundColor: 'transparent', color: 'oklch(0.50 0.05 180)' },
-	'robotics': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 80)' },
-	'software': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 240)' },
-	'career': { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 50)' }
+	robotics: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 80)' },
+	software: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 240)' },
+	career: { backgroundColor: 'transparent', color: 'oklch(0.55 0.05 50)' }
 }
 
 const defaultStyle = { backgroundColor: 'transparent', color: 'oklch(0.55 0.03 90)' }

@@ -2,7 +2,9 @@
 @import '@fontsource/jetbrains-mono';
 
 /* ─── Minimal reset ─── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
@@ -14,28 +16,64 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
 	display: block;
 	max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
 	font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	text-wrap: balance;
 }
 
 /* ─── Base heading sizes ─── */
-h1 { font-size: var(--text-2xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); }
-h2 { font-size: var(--text-xl); font-weight: var(--weight-bold); line-height: var(--leading-tight); }
-h3 { font-size: var(--text-lg); font-weight: var(--weight-bold); line-height: var(--leading-tight); }
-h4, h5, h6 { font-size: var(--text-md); font-weight: var(--weight-medium); line-height: var(--leading-tight); }
+h1 {
+	font-size: var(--text-2xl);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+}
+h2 {
+	font-size: var(--text-xl);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+}
+h3 {
+	font-size: var(--text-lg);
+	font-weight: var(--weight-bold);
+	line-height: var(--leading-tight);
+}
+h4,
+h5,
+h6 {
+	font-size: var(--text-md);
+	font-weight: var(--weight-medium);
+	line-height: var(--leading-tight);
+}
 
 html {
 	/* ─── Typography ─── */
@@ -105,7 +143,7 @@ html {
 	--border-dark: oklch(0.26 0.005 90);
 
 	/* ─── Light theme (warm paper, not white) ─── */
-	--brand-light: oklch(0.50 0.10 145);
+	--brand-light: oklch(0.5 0.1 145);
 	--text-1-light: oklch(0.25 0.01 90);
 	--text-2-light: oklch(0.45 0.01 90);
 	--surface-1-light: oklch(0.94 0.01 90);
@@ -211,6 +249,8 @@ body {
 /* ─── Elements ─── */
 img {
 	border-radius: 0;
+	height: auto;
+	max-width: 100%;
 }
 
 button {
@@ -227,7 +267,9 @@ a {
 	color: var(--brand);
 	text-decoration: none;
 	border-bottom: 1px solid transparent;
-	transition: border-color 0.2s ease, color 0.2s ease;
+	transition:
+		border-color 0.2s ease,
+		color 0.2s ease;
 }
 
 a:visited {
@@ -250,6 +292,11 @@ li {
 
 figure {
 	margin: var(--space-5) 0;
+	max-width: 100%;
+}
+
+figure img {
+	height: auto;
 }
 
 figcaption {
@@ -327,7 +374,9 @@ blockquote {
 		letter-spacing: -0.01em;
 	}
 
-	h4, h5, h6 {
+	h4,
+	h5,
+	h6 {
 		font-size: var(--text-md);
 		font-weight: var(--weight-medium);
 		line-height: var(--leading-tight);
@@ -338,7 +387,7 @@ blockquote {
 	}
 
 	:is(ul, ol) {
-		list-style-type: '› ';
+		list-style-type: '– ';
 		padding-left: var(--space-5);
 		margin-top: var(--space-4);
 	}

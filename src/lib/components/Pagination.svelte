@@ -87,7 +87,9 @@
 			font-family: var(--font-mono);
 			font-size: var(--text-sm);
 			cursor: pointer;
-			transition: border-color 0.2s ease, color 0.2s ease;
+			transition:
+				border-color 0.2s ease,
+				color 0.2s ease;
 
 			&:hover {
 				border-color: var(--brand);
@@ -120,7 +122,9 @@
 			font-family: var(--font-mono);
 			font-size: var(--text-sm);
 			cursor: pointer;
-			transition: border-color 0.2s ease, color 0.2s ease;
+			transition:
+				border-color 0.2s ease,
+				color 0.2s ease;
 
 			&:hover {
 				border-color: var(--border);

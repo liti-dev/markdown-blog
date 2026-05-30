@@ -8,7 +8,7 @@ export const config = {
 export async function GET() {
 	const posts = await getPosts()
 	const baseUrl = url
-	
+
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<!-- Homepage -->
@@ -34,24 +34,28 @@ export async function GET() {
 	
 	<!-- Blog posts -->
 	${posts
-		.filter(post => post.published)
-		.map(post => `
+		.filter((post) => post.published)
+		.map(
+			(post) => `
 	<url>
 		<loc>${baseUrl}/${post.slug}</loc>
 		<lastmod>${post.date}</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.9</priority>
-	</url>`)
+	</url>`
+		)
 		.join('')}
 	
 	<!-- Category pages -->
-	${[...new Set(posts.flatMap(post => post.categories))]
-		.map(category => `
+	${[...new Set(posts.flatMap((post) => post.categories))]
+		.map(
+			(category) => `
 	<url>
 		<loc>${baseUrl}/category/${category}</loc>
 		<changefreq>weekly</changefreq>
 		<priority>0.6</priority>
-	</url>`)
+	</url>`
+		)
 		.join('')}
 </urlset>`
 

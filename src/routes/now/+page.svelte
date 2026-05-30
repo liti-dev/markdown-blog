@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte'
 
-	let lastUpdated = 'Oct 2025'
+	let lastUpdated = 'May 2026'
 </script>
 
 <SEO title="Now - What I've been up to" description="What I'm focusing on in my life" />
@@ -24,33 +24,30 @@
 
 			<div class="focus-areas">
 				<section class="focus-item">
-					<h2>TLDR</h2>
+					<h2>May 2026</h2>
 					<ul>
 						<li>
-							Building and maintaining <a href="/vscarbon-grid-aware-vscode-extension">VSCarbon</a> -
-							a VS Code extension that fosters low-carbon coding.
-						</li>
-						<li>Writing (docs and this digital garden)</li>
-						<li>Job searching</li>
-						<li>
-							Contributing to <a
-								href="https://github.com/sveltevietnam/sveltevietnam.dev"
-								target="_blank"
-								rel="noopener">Svelte Viet Nam</a
-							> and Tech4Good projects
+							Built a <a href="/esp32-oled-ai-pet">tamagotchi-style pet</a> with ESP32 and an OLED display
+							that reacts to my AI agent's state. Physical computing feels like the right counterweight
+							to all the abstraction.
 						</li>
 						<li>
-							Learning data viz using Svelte and D3, a little bit of architecture and other
-							technologies
+							Gaining more knowledge of physical AI. The intersection of embedded systems, sensors,
+							and intelligence. Not just software talking to software anymore.
 						</li>
 						<li>
-							Others: making oolong jasmine or Vietnamese coffee every day, attending tech meetups,
-							watching (mostly) farming and detective shows
+							Promoted to Software Engineer. Owning a few projects now, which means more
+							responsibility but also more room to shape things.
+						</li>
+						<li>
+							The conflict between sustainability and growth hasn't resolved. I don't think it will.
+							But I'm learning to hold both without pretending one wins.
+						</li>
+						<li>
+							Analog is back. Hardware is back. People are tired of pure-screen experiences. I'm
+							noticing this everywhere: in tech, in culture, in what I want to build.
 						</li>
 					</ul>
-				</section>
-
-				<section class="focus-item">
 					<h2>October 2025</h2>
 					<ul>
 						<li>Tech talk about green sofware for Women Coding Community</li>
@@ -169,16 +166,20 @@
 		padding: var(--space-5);
 
 		h2 {
-			margin-top: 0;
+			margin-top: var(--space-7);
 			margin-bottom: var(--space-4);
 			color: var(--text-1);
 			font-family: var(--font-mono);
 			font-size: var(--text-lg);
+
+			&:first-child {
+				margin-top: 0;
+			}
 		}
 
 		ul {
 			margin: 0;
-			list-style-type: '› ';
+			list-style-type: '– ';
 			padding-left: var(--space-5);
 		}
 

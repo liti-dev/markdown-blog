@@ -10,6 +10,15 @@
 		{
 			"files": "*.svelte",
 			"options": { "parser": "svelte" }
+		},
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2,
+				"proseWrap": "always",
+				"printWidth": 80
+			}
 		}
 	]
 }
